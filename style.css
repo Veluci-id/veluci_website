@@ -1,0 +1,771 @@
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #e0e0e0; /* Warna teks utama di latar belakang gelap */
+    background-color: #1a1a1a; /* Latar belakang website utama: sangat gelap */
+    scroll-behavior: smooth;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+    padding: 20px 0;
+}
+
+h1, h2, h3, h4 {
+    color: #FFD700; /* Warna emas untuk judul */
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 600; /* Sedikit lebih tebal untuk judul */
+    letter-spacing: 0.5px; /* Sedikit jarak antar huruf */
+}
+
+/* Halaman utama (index.html) hero h1 */
+h1 {
+    font-size: 3.5em;
+    margin-bottom: 15px;
+    color: #FFD700; /* Emas untuk judul Hero */
+}
+
+h2 {
+    font-size: 2.8em;
+    padding-top: 30px;
+    color: #FFD700; /* Emas untuk judul section */
+}
+
+p.section-description {
+    text-align: center;
+    font-size: 1.1em;
+    color: #bbb; /* Abu-abu terang untuk deskripsi di latar belakang gelap */
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Buttons Styling */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    margin: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Shadow lebih kuat */
+}
+
+.btn.primary { /* Tombol utama: Emas dengan teks gelap */
+    background-color: #FFD700;
+    color: #1a1a1a;
+    border: 2px solid #FFD700;
+}
+
+.btn.primary:hover {
+    background-color: #DAA520;
+    color: #1a1a1a;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+}
+
+.btn.secondary { /* Tombol sekunder: Transparan dengan teks/border emas */
+    background-color: transparent;
+    color: #FFD700;
+    border: 2px solid #FFD700;
+}
+
+.btn.secondary:hover {
+    background-color: #FFD700;
+    color: #1a1a1a;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+}
+
+.btn.small {
+    padding: 8px 18px;
+    font-size: 0.9em;
+}
+
+.btn-center {
+    display: block;
+    width: fit-content;
+    margin: 40px auto 20px auto;
+    text-align: center;
+}
+
+/* Header Section Styling */
+header {
+    background-color: #000; /* Hitam pekat untuk header */
+    color: #fff;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.2); /* Garis emas samar */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5); /* Shadow lebih kuat */
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo {
+    margin-right: 40px;
+}
+
+.logo .header-logo {
+    height: 50px; /* Tinggi logo */
+    width: auto;
+    vertical-align: middle;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li:first-child {
+    margin-left: 0;
+}
+
+nav ul li a {
+    color: #e0e0e0; /* Teks navigasi putih keabuan */
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1em;
+    padding-bottom: 5px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #FFD700; /* Warna emas untuk underline */
+    transition: width 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    color: #FFD700; /* Teks emas saat hover */
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+
+/* Hero Section Styling (untuk index.html) */
+.hero {
+    background: linear-gradient(135deg, #000000 0%, #333333 100%); /* Gradasi hitam ke abu-abu gelap */
+    color: #fff;
+    text-align: center;
+    padding: 120px 0; /* Padding lebih besar */
+    min-height: 550px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Optional: Subtle geometric pattern (Emas samar) */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g fill="%23FFD700" fill-opacity="0.03"><circle cx="25" cy="25" r="3"/><circle cx="75" cy="75" r="3"/></g></svg>');
+    background-size: 50px 50px;
+    opacity: 0.1; /* Sangat samar */
+    z-index: 0;
+}
+
+
+.hero .container {
+    z-index: 1;
+}
+
+.hero p {
+    font-size: 1.3em;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #e0e0e0;
+}
+
+.hero-buttons {
+    margin-top: 40px;
+}
+
+/* Section Common Styling */
+section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+/* Background untuk section ganjil (termasuk .services dan .contact) */
+section:nth-child(odd) { /* Ini akan diterapkan ke Services, Contact (di index.html) */
+    background-color: #222; /* Abu-abu sangat gelap */
+}
+
+/* Background untuk section genap (termasuk .products, .about) */
+section:nth-child(even) { /* Ini akan diterapkan ke Products, About (di index.html) */
+    background-color: #1a1a1a; /* Latar belakang gelap utama, seperti body */
+    color: #e0e0e0; /* Warna teks terang */
+}
+
+/* Pastikan teks di section yang diubah background-nya tetap terang dan judulnya emas */
+section:nth-child(even) h2,
+section:nth-child(even) p.section-description,
+section:nth-child(even) .service-item h3, /* Jika ada di section genap, meski tidak di kasus ini */
+section:nth-child(even) .service-item p,
+section:nth-child(even) .product-item h4, /* Judul produk */
+section:nth-child(even) .product-item p,
+section:nth-child(even) .contact-info p, /* Info kontak di section genap */
+section:nth-child(even) .contact-info a {
+    color: #e0e0e0; /* Teks terang di latar belakang gelap */
+}
+section:nth-child(even) h2 {
+    color: #FFD700; /* Judul emas */
+}
+
+
+/* Services Section Styling (index.html) */
+.services h2, .services p.section-description {
+    color: #FFD700;
+}
+
+.services .service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.services .service-item {
+    background-color: #333;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+    border: 1px solid rgba(255, 215, 0, 0.1);
+}
+
+.services .service-item:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+}
+
+.services .service-item h3 {
+    color: #FFD700;
+    margin-top: 0;
+    text-align: left;
+    font-size: 1.6em;
+}
+
+.services .service-item p {
+    color: #e0e0e0;
+    font-size: 1em;
+    text-align: left;
+}
+
+
+/* Products Section Styling (index.html) */
+.products {
+    background-color: #1a1a1a; /* Latar belakang gelap utama */
+}
+
+.products .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.products .product-item {
+    background-color: #222; /* Latar belakang kartu lebih terang dari section */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    border: 1px solid rgba(255, 215, 0, 0.1); /* Border emas samar */
+}
+
+.products .product-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+.products .product-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.products .product-item:hover img {
+    transform: scale(1.02);
+}
+
+.products .product-item h4 {
+    color: #FFD700; /* Warna judul emas */
+    margin-bottom: 10px;
+    font-size: 1.3em;
+}
+/* Tombol di product-item, tetap primary (emas) */
+.products .product-item .btn.small {
+    background-color: #FFD700;
+    color: #1a1a1a;
+    border: 1px solid #FFD700;
+}
+.products .product-item .btn.small:hover {
+    background-color: #DAA520;
+    color: #1a1a1a;
+}
+/* Gaya untuk tombol utama di bagian produk (secondary-shop-btn - Shopee & TikTok) */
+.secondary-shop-btn {
+    background-color: transparent; /* Sekarang secondary juga transparan */
+    color: #FFD700;
+    border: 2px solid #FFD700;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+.secondary-shop-btn:hover {
+    background-color: #FFD700; /* Emas saat hover */
+    color: #1a1a1a; /* Teks gelap saat hover */
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+}
+
+
+/* Portfolio Section Styling (index.html) */
+.portfolio {
+    background-color: #1a1a1a;
+}
+
+.portfolio h2, .portfolio p.section-description {
+    color: #FFD700;
+}
+
+.portfolio .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.portfolio .portfolio-grid img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+    cursor: pointer;
+    border: 1px solid rgba(255, 215, 0, 0.1);
+}
+
+.portfolio .portfolio-grid img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+    border: 1px solid #FFD700;
+}
+
+
+/* About Section Styling (index.html) */
+.about {
+    background-color: #1a1a1a; /* Ganti ke latar belakang gelap utama */
+    color: #e0e0e0; /* Teks terang */
+}
+.about h2, .about p.section-description {
+    color: #FFD700; /* Judul emas */
+}
+.about p {
+    color: #e0e0e0; /* Teks terang */
+}
+.about .btn.btn-center {
+    background-color: #FFD700; /* Tombol emas */
+    color: #1a1a1a; /* Teks gelap */
+    border: 2px solid #FFD700;
+}
+.about .btn.btn-center:hover {
+    background-color: #DAA520; /* Emas lebih gelap */
+    color: #1a1a1a;
+    transform: translateY(-2px);
+}
+
+
+/* Contact Section Styling (index.html) */
+.contact {
+    background-color: #222;
+}
+.contact h2, .contact p.section-description, .contact-info p {
+    color: #FFD700;
+}
+.contact .contact-info a {
+    color: #FFD700;
+    transition: color 0.3s ease;
+}
+.contact .contact-info a:hover {
+    color: #DAA520;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: auto;
+    background-color: #1a1a1a;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 215, 0, 0.1);
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: calc(100% - 20px);
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #444;
+    border-radius: 4px;
+    font-size: 1em;
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #888;
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.contact-form button[type="submit"] {
+    width: 100%;
+    border: none;
+    font-size: 1.2em;
+    background-color: #FFD700;
+    color: #1a1a1a;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.contact-form button[type="submit"]:hover {
+    background-color: #DAA520;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+}
+
+
+/* Footer Styling */
+footer {
+    background-color: #000;
+    color: #fff;
+    padding: 40px 0;
+    text-align: center;
+    border-top: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+footer .footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+footer .footer-links ul li {
+    margin: 0 18px;
+}
+
+footer .footer-links ul li a {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+footer .footer-links ul li a:hover {
+    color: #FFD700;
+}
+
+footer .social-media a {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-size: 1.3em;
+    margin: 0 12px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+footer .social-media a:hover {
+    color: #FFD700;
+    transform: translateY(-3px);
+}
+
+footer p {
+    margin-top: 25px;
+    font-size: 0.95em;
+    color: #888;
+}
+
+
+/* WhatsApp Floating Button */
+.whatsapp-float {
+    position: fixed;
+    width: 65px;
+    height: 65px;
+    bottom: 35px;
+    right: 35px;
+    background-color: #25d366;
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 35px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.whatsapp-float img {
+    width: 40px;
+    height: 40px;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+}
+
+
+/* PAGE SPECIFIC STYLING - APLIKASI.HTML */
+
+/* Hero section for other pages (like aplikasi.html) */
+.page-hero {
+    background: linear-gradient(135deg, #000000 0%, #333333 100%);
+    color: #fff;
+    text-align: center;
+    padding: 80px 0; /* Lebih kecil dari hero homepage */
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.page-hero h1 {
+    font-size: 3em;
+    color: #FFD700;
+    margin-bottom: 10px;
+}
+.page-hero p {
+    font-size: 1.1em;
+    max-width: 700px;
+    margin: 0 auto;
+    color: #e0e0e0;
+}
+
+/* Apps Section Styling (aplikasi.html) - Sekarang dengan gaya KOTAK-KOTAK */
+.apps-section {
+    background-color: #1a1a1a; /* Latar belakang gelap utama */
+    padding: 80px 0;
+    color: #e0e0e0; /* Warna teks utama terang */
+}
+
+.apps-section h2, .apps-section p.section-description {
+    color: #FFD700; /* Judul emas */
+}
+
+.apps-section .app-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.apps-section .app-item {
+    background-color: #222; /* Latar belakang kartu abu-abu gelap, agar kontras */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); /* Shadow sesuai tema gelap */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center; /* Pusatkan konten item */
+    border: 1px solid rgba(255, 215, 0, 0.1); /* Border emas samar */
+}
+
+.apps-section .app-item:hover {
+    transform: translateY(-7px); /* Efek naik lebih jauh */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6); /* Shadow lebih kuat saat hover */
+}
+
+.apps-section .app-item .app-icon {
+    font-size: 3.5em; /* Ukuran ikon lebih besar */
+    color: #FFD700; /* Warna ikon emas */
+    margin-bottom: 20px;
+    display: block;
+    text-align: center;
+    transition: color 0.3s ease;
+}
+
+.apps-section .app-item:hover .app-icon {
+    color: #DAA520; /* Ikon berubah jadi emas lebih gelap saat hover */
+}
+
+.apps-section .app-item h3 {
+    color: #FFD700; /* Warna judul aplikasi emas */
+    margin-top: 0;
+    font-size: 1.6em;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.apps-section .app-item p {
+    color: #e0e0e0; /* Teks deskripsi putih keabuan */
+    font-size: 1em;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+/* Memastikan tombol di app-item menggunakan gaya primary small */
+.apps-section .app-item .btn.primary.small {
+    background-color: #FFD700; /* Tombol emas */
+    color: #1a1a1a; /* Teks hitam gelap */
+    border: 2px solid #FFD700;
+    padding: 8px 18px;
+    font-size: 0.9em;
+    display: block;
+    margin: 0 auto;
+}
+.apps-section .app-item .btn.primary.small:hover {
+    background-color: #DAA520; /* Emas lebih gelap saat hover */
+    color: #1a1a1a;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+}
+
+
+/* Responsive Design - Media Queries */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.8em;
+    }
+
+    h2 {
+        font-size: 2.2em;
+    }
+
+    .hero {
+        padding: 100px 0;
+        min-height: 450px;
+    }
+
+    header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .logo {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .logo .header-logo {
+        height: 45px;
+    }
+
+    nav ul {
+        margin-top: 0px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav ul li {
+        margin: 5px 12px;
+    }
+
+    nav ul li:first-child {
+        margin-left: 12px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 90%;
+        margin: 10px auto;
+    }
+
+    .service-grid, .product-grid, .portfolio-grid, .apps-section .app-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .services .service-item,
+    .products .product-item,
+    .apps-section .app-item {
+        padding: 25px;
+    }
+
+    .whatsapp-float {
+        width: 55px;
+        height: 55px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 28px;
+    }
+
+    .whatsapp-float img {
+        width: 33px;
+        height: 33px;
+    }
+
+    /* Responsive for apps section */
+    .page-hero {
+        padding: 60px 0;
+        min-height: 250px;
+    }
+    .page-hero h1 {
+        font-size: 2.5em;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2.2em;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    section {
+        padding: 60px 0;
+    }
+    .hero p {
+        font-size: 1.1em;
+    }
+}
