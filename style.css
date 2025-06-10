@@ -127,6 +127,37 @@ header .container {
     vertical-align: middle;
 }
 
+/* Mobile Menu Toggle (Hamburger) */
+.menu-toggle {
+    display: none; /* Sembunyikan secara default di desktop */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 1001; /* Pastikan di atas nav */
+}
+
+.menu-toggle .bar {
+    width: 100%;
+    height: 3px;
+    background-color: #FFD700; /* Warna emas */
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Animation for Menu Toggle when active */
+.menu-toggle.is-active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.menu-toggle.is-active .bar:nth-child(2) {
+    opacity: 0;
+}
+.menu-toggle.is-active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Navigation (Desktop) */
 nav ul {
     list-style: none;
     margin: 0;
@@ -164,7 +195,7 @@ nav ul li a::after {
 }
 
 nav ul li a:hover {
-    color: #FFD700; /* Teks emas saat hover */
+    color: #FFD700;
 }
 
 nav ul li a:hover::after {
@@ -174,10 +205,10 @@ nav ul li a:hover::after {
 
 /* Hero Section Styling (untuk index.html) */
 .hero {
-    background: linear-gradient(135deg, #000000 0%, #333333 100%); /* Gradasi hitam ke abu-abu gelap */
+    background: linear-gradient(135deg, #000000 0%, #333333 100%);
     color: #fff;
     text-align: center;
-    padding: 120px 0; /* Padding lebih besar */
+    padding: 120px 0;
     min-height: 550px;
     display: flex;
     align-items: center;
@@ -196,7 +227,7 @@ nav ul li a:hover::after {
     height: 100%;
     background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g fill="%23FFD700" fill-opacity="0.03"><circle cx="25" cy="25" r="3"/><circle cx="75" cy="75" r="3"/></g></svg>');
     background-size: 50px 50px;
-    opacity: 0.1; /* Sangat samar */
+    opacity: 0.1;
     z-index: 0;
 }
 
@@ -224,30 +255,30 @@ section {
     text-align: center;
 }
 
-/* Background untuk section ganjil (termasuk .services dan .contact) */
-section:nth-child(odd) { /* Ini akan diterapkan ke Services, Contact (di index.html) */
-    background-color: #222; /* Abu-abu sangat gelap */
+/* Default background for odd sections (index.html) */
+section:nth-child(odd) {
+    background-color: #222;
 }
 
-/* Background untuk section genap (termasuk .products, .about) */
-section:nth-child(even) { /* Ini akan diterapkan ke Products, About (di index.html) */
-    background-color: #1a1a1a; /* Latar belakang gelap utama, seperti body */
-    color: #e0e0e0; /* Warna teks terang */
+/* Background for even sections (index.html) */
+section:nth-child(even) {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
 }
 
 /* Pastikan teks di section yang diubah background-nya tetap terang dan judulnya emas */
 section:nth-child(even) h2,
 section:nth-child(even) p.section-description,
-section:nth-child(even) .service-item h3, /* Jika ada di section genap, meski tidak di kasus ini */
+section:nth-child(even) .service-item h3,
 section:nth-child(even) .service-item p,
-section:nth-child(even) .product-item h4, /* Judul produk */
+section:nth-child(even) .product-item h4,
 section:nth-child(even) .product-item p,
-section:nth-child(even) .contact-info p, /* Info kontak di section genap */
+section:nth-child(even) .contact-info p,
 section:nth-child(even) .contact-info a {
-    color: #e0e0e0; /* Teks terang di latar belakang gelap */
+    color: #e0e0e0;
 }
 section:nth-child(even) h2 {
-    color: #FFD700; /* Judul emas */
+    color: #FFD700;
 }
 
 
@@ -294,7 +325,7 @@ section:nth-child(even) h2 {
 
 /* Products Section Styling (index.html) */
 .products {
-    background-color: #1a1a1a; /* Latar belakang gelap utama */
+    background-color: #1a1a1a;
 }
 
 .products .product-grid {
@@ -305,13 +336,13 @@ section:nth-child(even) h2 {
 }
 
 .products .product-item {
-    background-color: #222; /* Latar belakang kartu lebih terang dari section */
+    background-color: #222;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
-    border: 1px solid rgba(255, 215, 0, 0.1); /* Border emas samar */
+    border: 1px solid rgba(255, 215, 0, 0.1);
 }
 
 .products .product-item:hover {
@@ -332,7 +363,7 @@ section:nth-child(even) h2 {
 }
 
 .products .product-item h4 {
-    color: #FFD700; /* Warna judul emas */
+    color: #FFD700;
     margin-bottom: 10px;
     font-size: 1.3em;
 }
@@ -348,14 +379,14 @@ section:nth-child(even) h2 {
 }
 /* Gaya untuk tombol utama di bagian produk (secondary-shop-btn - Shopee & TikTok) */
 .secondary-shop-btn {
-    background-color: transparent; /* Sekarang secondary juga transparan */
+    background-color: transparent;
     color: #FFD700;
     border: 2px solid #FFD700;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 .secondary-shop-btn:hover {
-    background-color: #FFD700; /* Emas saat hover */
-    color: #1a1a1a; /* Teks gelap saat hover */
+    background-color: #FFD700;
+    color: #1a1a1a;
     transform: translateY(-3px);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
 }
@@ -397,22 +428,22 @@ section:nth-child(even) h2 {
 
 /* About Section Styling (index.html) */
 .about {
-    background-color: #1a1a1a; /* Ganti ke latar belakang gelap utama */
-    color: #e0e0e0; /* Teks terang */
+    background-color: #1a1a1a;
+    color: #e0e0e0;
 }
 .about h2, .about p.section-description {
-    color: #FFD700; /* Judul emas */
+    color: #FFD700;
 }
 .about p {
-    color: #e0e0e0; /* Teks terang */
+    color: #e0e0e0;
 }
 .about .btn.btn-center {
-    background-color: #FFD700; /* Tombol emas */
-    color: #1a1a1a; /* Teks gelap */
+    background-color: #FFD700;
+    color: #1a1a1a;
     border: 2px solid #FFD700;
 }
 .about .btn.btn-center:hover {
-    background-color: #DAA520; /* Emas lebih gelap */
+    background-color: #DAA520;
     color: #1a1a1a;
     transform: translateY(-2px);
 }
@@ -525,6 +556,7 @@ footer .social-media a {
 footer .social-media a:hover {
     color: #FFD700;
     transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
 }
 
 footer p {
@@ -573,7 +605,7 @@ footer p {
     background: linear-gradient(135deg, #000000 0%, #333333 100%);
     color: #fff;
     text-align: center;
-    padding: 80px 0; /* Lebih kecil dari hero homepage */
+    padding: 80px 0;
     min-height: 300px;
     display: flex;
     align-items: center;
@@ -591,15 +623,15 @@ footer p {
     color: #e0e0e0;
 }
 
-/* Apps Section Styling (aplikasi.html) - Sekarang dengan gaya KOTAK-KOTAK */
+/* Apps Section Styling (aplikasi.html) */
 .apps-section {
-    background-color: #1a1a1a; /* Latar belakang gelap utama */
+    background-color: #1a1a1a;
     padding: 80px 0;
-    color: #e0e0e0; /* Warna teks utama terang */
+    color: #e0e0e0;
 }
 
 .apps-section h2, .apps-section p.section-description {
-    color: #FFD700; /* Judul emas */
+    color: #FFD700;
 }
 
 .apps-section .app-grid {
@@ -610,23 +642,23 @@ footer p {
 }
 
 .apps-section .app-item {
-    background-color: #222; /* Latar belakang kartu abu-abu gelap, agar kontras */
+    background-color: #222;
     padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); /* Shadow sesuai tema gelap */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: center; /* Pusatkan konten item */
-    border: 1px solid rgba(255, 215, 0, 0.1); /* Border emas samar */
+    text-align: center;
+    border: 1px solid rgba(255, 215, 0, 0.1);
 }
 
 .apps-section .app-item:hover {
-    transform: translateY(-7px); /* Efek naik lebih jauh */
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6); /* Shadow lebih kuat saat hover */
+    transform: translateY(-7px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
 }
 
 .apps-section .app-item .app-icon {
-    font-size: 3.5em; /* Ukuran ikon lebih besar */
-    color: #FFD700; /* Warna ikon emas */
+    font-size: 3.5em;
+    color: #FFD700;
     margin-bottom: 20px;
     display: block;
     text-align: center;
@@ -634,11 +666,11 @@ footer p {
 }
 
 .apps-section .app-item:hover .app-icon {
-    color: #DAA520; /* Ikon berubah jadi emas lebih gelap saat hover */
+    color: #DAA520;
 }
 
 .apps-section .app-item h3 {
-    color: #FFD700; /* Warna judul aplikasi emas */
+    color: #FFD700;
     margin-top: 0;
     font-size: 1.6em;
     margin-bottom: 10px;
@@ -646,7 +678,7 @@ footer p {
 }
 
 .apps-section .app-item p {
-    color: #e0e0e0; /* Teks deskripsi putih keabuan */
+    color: #e0e0e0;
     font-size: 1em;
     margin-bottom: 25px;
     text-align: center;
@@ -654,8 +686,8 @@ footer p {
 
 /* Memastikan tombol di app-item menggunakan gaya primary small */
 .apps-section .app-item .btn.primary.small {
-    background-color: #FFD700; /* Tombol emas */
-    color: #1a1a1a; /* Teks hitam gelap */
+    background-color: #FFD700;
+    color: #1a1a1a;
     border: 2px solid #FFD700;
     padding: 8px 18px;
     font-size: 0.9em;
@@ -663,7 +695,7 @@ footer p {
     margin: 0 auto;
 }
 .apps-section .app-item .btn.primary.small:hover {
-    background-color: #DAA520; /* Emas lebih gelap saat hover */
+    background-color: #DAA520;
     color: #1a1a1a;
     transform: translateY(-3px);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
@@ -699,18 +731,47 @@ footer p {
         height: 45px;
     }
 
+    /* Mobile Nav: Hide by default */
+    nav {
+        display: none;
+        width: 100%;
+        background-color: #000;
+        position: absolute;
+        top: 80px; /* Tinggi header + sedikit padding */
+        left: 0;
+        padding: 10px 0;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        z-index: 999;
+    }
+
+    nav.is-active {
+        display: block; /* Tampilkan navigasi saat aktif */
+    }
+
     nav ul {
-        margin-top: 0px;
-        flex-wrap: wrap;
-        justify-content: center;
+        flex-direction: column;
     }
 
     nav ul li {
-        margin: 5px 12px;
+        margin: 0;
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(255, 215, 0, 0.1);
     }
 
-    nav ul li:first-child {
-        margin-left: 12px;
+    nav ul li:last-child {
+        border-bottom: none;
+    }
+
+    nav ul li a {
+        padding: 10px 20px;
+        display: block;
+        text-align: center;
+        font-size: 1.2em;
+    }
+
+    /* Mobile Menu Toggle (Hamburger) */
+    .menu-toggle {
+        display: flex;
     }
 
     .hero-buttons {
@@ -718,8 +779,8 @@ footer p {
     }
 
     .btn {
-        width: 90%;
-        margin: 10px auto;
+        width: 90%; /* Lebar tombol menjadi 90% dari container */
+        margin: 10px auto; /* Pusatkan tombol */
     }
 
     .service-grid, .product-grid, .portfolio-grid, .apps-section .app-grid {
