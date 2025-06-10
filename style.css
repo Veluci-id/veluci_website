@@ -9,6 +9,11 @@ body {
     scroll-behavior: smooth;
 }
 
+/* Untuk mencegah scrolling saat menu mobile aktif */
+body.no-scroll {
+    overflow: hidden;
+}
+
 .container {
     width: 90%;
     max-width: 1200px;
@@ -18,30 +23,30 @@ body {
 }
 
 h1, h2, h3, h4 {
-    color: #FFD700; /* Warna emas untuk judul */
+    color: #FFD700;
     text-align: center;
     margin-bottom: 20px;
-    font-weight: 600; /* Sedikit lebih tebal untuk judul */
-    letter-spacing: 0.5px; /* Sedikit jarak antar huruf */
+    font-weight: 600;
+    letter-spacing: 0.5px;
 }
 
 /* Halaman utama (index.html) hero h1 */
 h1 {
     font-size: 3.5em;
     margin-bottom: 15px;
-    color: #FFD700; /* Emas untuk judul Hero */
+    color: #FFD700;
 }
 
 h2 {
     font-size: 2.8em;
     padding-top: 30px;
-    color: #FFD700; /* Emas untuk judul section */
+    color: #FFD700;
 }
 
 p.section-description {
     text-align: center;
     font-size: 1.1em;
-    color: #bbb; /* Abu-abu terang untuk deskripsi di latar belakang gelap */
+    color: #bbb;
     margin-bottom: 40px;
     max-width: 800px;
     margin-left: auto;
@@ -57,10 +62,10 @@ p.section-description {
     text-decoration: none;
     font-weight: bold;
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Shadow lebih kuat */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 
-.btn.primary { /* Tombol utama: Emas dengan teks gelap */
+.btn.primary {
     background-color: #FFD700;
     color: #1a1a1a;
     border: 2px solid #FFD700;
@@ -73,7 +78,7 @@ p.section-description {
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
 }
 
-.btn.secondary { /* Tombol sekunder: Transparan dengan teks/border emas */
+.btn.secondary {
     background-color: transparent;
     color: #FFD700;
     border: 2px solid #FFD700;
@@ -100,14 +105,14 @@ p.section-description {
 
 /* Header Section Styling */
 header {
-    background-color: #000; /* Hitam pekat untuk header */
+    background-color: #000;
     color: #fff;
     padding: 15px 0;
-    border-bottom: 1px solid rgba(255, 215, 0, 0.2); /* Garis emas samar */
+    border-bottom: 1px solid rgba(255, 215, 0, 0.2);
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.5); /* Shadow lebih kuat */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
 }
 
 header .container {
@@ -122,7 +127,7 @@ header .container {
 }
 
 .logo .header-logo {
-    height: 50px; /* Tinggi logo */
+    height: 50px;
     width: auto;
     vertical-align: middle;
 }
@@ -135,13 +140,14 @@ header .container {
     width: 30px;
     height: 20px;
     cursor: pointer;
-    z-index: 1001; /* Pastikan di atas nav */
+    z-index: 1001;
+    padding: 5px;
 }
 
 .menu-toggle .bar {
     width: 100%;
     height: 3px;
-    background-color: #FFD700; /* Warna emas */
+    background-color: #FFD700;
     border-radius: 5px;
     transition: all 0.3s ease-in-out;
 }
@@ -174,7 +180,7 @@ nav ul li:first-child {
 }
 
 nav ul li a {
-    color: #e0e0e0; /* Teks navigasi putih keabuan */
+    color: #e0e0e0;
     text-decoration: none;
     font-weight: 500;
     font-size: 1.1em;
@@ -190,7 +196,7 @@ nav ul li a::after {
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: #FFD700; /* Warna emas untuk underline */
+    background-color: #FFD700;
     transition: width 0.3s ease-in-out;
 }
 
@@ -556,7 +562,6 @@ footer .social-media a {
 footer .social-media a:hover {
     color: #FFD700;
     transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
 }
 
 footer p {
@@ -733,15 +738,16 @@ footer p {
 
     /* Mobile Nav: Hide by default */
     nav {
-        display: none;
+        display: none; /* Sembunyikan navigasi di mobile */
         width: 100%;
-        background-color: #000;
+        background-color: #000; /* Latar belakang menu mobile */
         position: absolute;
         top: 80px; /* Tinggi header + sedikit padding */
         left: 0;
         padding: 10px 0;
         box-shadow: 0 4px 8px rgba(0,0,0,0.3);
         z-index: 999;
+        text-align: center;
     }
 
     nav.is-active {
