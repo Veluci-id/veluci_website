@@ -23,11 +23,11 @@ body.no-scroll {
 }
 
 h1, h2, h3, h4 {
-    color: #FFD700;
+    color: #FFD700; /* Warna emas untuk judul */
     text-align: center;
     margin-bottom: 20px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
+    font-weight: 600; /* Sedikit lebih tebal untuk judul */
+    letter-spacing: 0.5px; /* Sedikit jarak antar huruf */
 }
 
 /* Halaman utama (index.html) hero h1 */
@@ -134,7 +134,7 @@ header .container {
 
 /* Mobile Menu Toggle (Hamburger) */
 .menu-toggle {
-    display: none; /* Sembunyikan secara default di desktop */
+    display: none;
     flex-direction: column;
     justify-content: space-between;
     width: 30px;
@@ -534,6 +534,7 @@ footer .footer-links ul {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    align-items: center; /* Tambahkan ini agar link sejajar di tengah */
 }
 
 footer .footer-links ul li {
@@ -603,9 +604,9 @@ footer p {
 }
 
 
-/* PAGE SPECIFIC STYLING - APLIKASI.HTML */
+/* PAGE SPECIFIC STYLING - APLIKASI.HTML DAN TERIMAKASIH.HTML */
 
-/* Hero section for other pages (like aplikasi.html) */
+/* Hero section for other pages (like aplikasi.html & terimakasih.html) */
 .page-hero {
     background: linear-gradient(135deg, #000000 0%, #333333 100%);
     color: #fff;
@@ -613,8 +614,9 @@ footer p {
     padding: 80px 0;
     min-height: 300px;
     display: flex;
-    align-items: center;
+    flex-direction: column; /* Mengatur konten di tengah vertikal */
     justify-content: center;
+    align-items: center;
 }
 .page-hero h1 {
     font-size: 3em;
@@ -624,9 +626,37 @@ footer p {
 .page-hero p {
     font-size: 1.1em;
     max-width: 700px;
-    margin: 0 auto;
+    margin: 0 auto; /* Memastikan p di tengah horizontal */
     color: #e0e0e0;
 }
+
+/* thank-you-section (terimakasih.html) */
+.thank-you-section {
+    padding: 100px 20px;
+    text-align: center;
+    min-height: 70vh; /* Pastikan cukup tinggi */
+    display: flex;
+    flex-direction: column; /* Mengatur konten di tengah vertikal */
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #000000 0%, #333333 100%); /* Konsisten dengan hero Veluci */
+    color: #fff;
+}
+.thank-you-section h1 {
+    font-size: 3.5em;
+    color: #FFD700;
+    margin-bottom: 20px;
+}
+.thank-you-section p {
+    font-size: 1.2em;
+    max-width: 600px;
+    margin: 0 auto 40px auto; /* Memastikan p di tengah horizontal */
+    color: #e0e0e0;
+}
+.thank-you-section .btn {
+    margin-top: 20px;
+}
+
 
 /* Apps Section Styling (aplikasi.html) */
 .apps-section {
@@ -738,11 +768,11 @@ footer p {
 
     /* Mobile Nav: Hide by default */
     nav {
-        display: none; /* Sembunyikan navigasi di mobile */
+        display: none;
         width: 100%;
-        background-color: #000; /* Latar belakang menu mobile */
+        background-color: #000;
         position: absolute;
-        top: 80px; /* Tinggi header + sedikit padding */
+        top: 80px;
         left: 0;
         padding: 10px 0;
         box-shadow: 0 4px 8px rgba(0,0,0,0.3);
@@ -751,7 +781,7 @@ footer p {
     }
 
     nav.is-active {
-        display: block; /* Tampilkan navigasi saat aktif */
+        display: block;
     }
 
     nav ul {
@@ -785,8 +815,8 @@ footer p {
     }
 
     .btn {
-        width: 90%; /* Lebar tombol menjadi 90% dari container */
-        margin: 10px auto; /* Pusatkan tombol */
+        width: 90%;
+        margin: 10px auto;
     }
 
     .service-grid, .product-grid, .portfolio-grid, .apps-section .app-grid {
