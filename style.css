@@ -866,3 +866,157 @@ footer p {
         font-size: 1.1em;
     }
 }
+/* Blog and Article Page Styling */
+.blog-posts {
+    background-color: #1a1a1a; /* Latar belakang gelap */
+    padding: 80px 0;
+    color: #e0e0e0;
+}
+
+.blog-posts .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.blog-post-item {
+    background-color: #222; /* Warna kartu abu-abu gelap */
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+    border: 1px solid rgba(255, 215, 0, 0.1);
+}
+
+.blog-post-item:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+}
+
+.blog-post-item img {
+    max-width: 100%;
+    height: 200px; /* Tinggi gambar artikel */
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.blog-post-item h3 {
+    color: #FFD700;
+    font-size: 1.5em;
+    margin-top: 0;
+    text-align: left;
+}
+
+.blog-post-item .post-meta {
+    font-size: 0.9em;
+    color: #bbb;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.blog-post-item p {
+    color: #e0e0e0;
+    font-size: 1em;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.blog-post-item .btn {
+    display: inline-block;
+    width: fit-content;
+    margin: 0;
+}
+
+/* Individual Article Page Styling */
+.blog-article {
+    background-color: #1a1a1a;
+    padding: 80px 0;
+    color: #e0e0e0;
+    text-align: left; /* Teks konten artikel rata kiri */
+}
+
+.blog-article .breadcrumbs {
+    font-size: 0.9em;
+    color: #bbb;
+    margin-bottom: 20px;
+}
+
+.blog-article .breadcrumbs a {
+    color: #FFD700;
+    text-decoration: none;
+}
+.blog-article .breadcrumbs a:hover {
+    text-decoration: underline;
+}
+
+.blog-article h2 {
+    font-size: 2.5em;
+    color: #FFD700;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.blog-article .post-meta {
+    font-size: 0.9em;
+    color: #bbb;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.blog-article img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.blog-article .article-content h3 {
+    color: #FFD700;
+    font-size: 1.8em;
+    margin-top: 40px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.blog-article .article-content p {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    color: #e0e0e0;
+    text-align: justify; /* Teks paragraf rata kanan-kiri */
+}
+
+.blog-article .article-content ul {
+    list-style: disc;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    color: #e0e0e0;
+}
+
+.blog-article .article-content ul li {
+    margin-bottom: 8px;
+    font-size: 1.05em;
+}
+
+.blog-article .btn-center {
+    margin-top: 50px;
+}
+
+/* Responsive adjustments for blog/article pages */
+@media (max-width: 768px) {
+    .blog-post-item {
+        padding: 20px;
+    }
+    .blog-post-item h3 {
+        font-size: 1.3em;
+    }
+    .blog-article h2 {
+        font-size: 2em;
+    }
+    .blog-article .article-content h3 {
+        font-size: 1.5em;
+    }
+}
