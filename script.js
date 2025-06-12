@@ -29,7 +29,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (contactForm) {
         contactForm.addEventListener('submit', function(event) {
-            event.preventDefault();
 
             const nameInput = contactForm.querySelector('input[type="text"]');
             const emailInput = contactForm.querySelector('input[type="email"]');
@@ -59,6 +58,18 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!isValid) {
                 alert('Kesalahan formulir:\n' + errorMessage.join('\n'));
             } else {
+                // Jika valid, biarkan form terkirim ke Netlify
+                // Hapus event.preventDefault() di sini agar form benar-benar terkirim
+                // atau, jika event.preventDefault() tetap di awal, gunakan:
+                // contactForm.submit();
+                // Namun, cara terbaik adalah membiarkan event.preventDefault() di awal,
+                // lalu menghapusnya jika validasi sukses dan ingin form berjalan secara normal.
+                // Atau, lebih bersih, submit secara programatis setelah reset.
+
+                // Cara yang paling umum dan bersih untuk Netlify Forms:
+                // Hapus event.preventDefault() di baris paling atas function submit jika validasi sukses.
+                // Tapi karena kita mau validasi ditampilkan dulu, kita akan submit secara programatis
+                event.currentTarget.submit(); // Ini akan memicu pengiriman form secara native
                 alert('Pesan Anda berhasil dikirim! Kami akan segera menghubungi Anda.');
                 contactForm.reset();
             }
