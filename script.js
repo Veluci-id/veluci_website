@@ -24,54 +24,70 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // --- 2. Validasi Formulir Kontak ---
+    // --- Validasi Formulir Kontak ---
     const contactForm = document.querySelector('.contact-form');
 
     if (contactForm) {
         contactForm.addEventListener('submit', function(event) {
+            // Bersihkan semua error sebelumnya
+            clearError('nama');
+            clearError('email');
+            clearError('pesan');
 
-            const nameInput = contactForm.querySelector('input[type="text"]');
-            const emailInput = contactForm.querySelector('input[type="email"]');
-            const messageInput = contactForm.querySelector('textarea');
+            // Dapatkan input berdasarkan atribut NAME
+            const nameInput = contactForm.querySelector('input[name="nama"]');
+            const emailInput = contactForm.querySelector('input[name="email"]');
+            const messageInput = contactForm.querySelector('textarea[name="pesan"]');
 
             let isValid = true;
             let errorMessage = [];
 
             if (nameInput.value.trim() === '') {
+                showError('nama', 'Nama tidak boleh kosong.');
                 isValid = false;
-                errorMessage.push('Nama tidak boleh kosong.');
             }
 
             if (emailInput.value.trim() === '') {
+                showError('email', 'Email tidak boleh kosong.');
                 isValid = false;
-                errorMessage.push('Email tidak boleh kosong.');
             } else if (!isValidEmail(emailInput.value.trim())) {
+                showError('email', 'Format email tidak valid.');
                 isValid = false;
-                errorMessage.push('Format email tidak valid.');
             }
 
             if (messageInput.value.trim() === '') {
+                showError('pesan', 'Pesan tidak boleh kosong.');
                 isValid = false;
-                errorMessage.push('Pesan tidak boleh kosong.');
             }
 
             if (!isValid) {
-                alert('Kesalahan formulir:\n' + errorMessage.join('\n'));
+                event.preventDefault(); // Mencegah form dikirim jika ada error
+                const firstErrorElement = document.querySelector('.error');
+                if (firstErrorElement) {
+                    firstErrorElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
             } else {
-                // Jika valid, biarkan form terkirim ke Netlify
-                // Hapus event.preventDefault() di sini agar form benar-benar terkirim
-                // atau, jika event.preventDefault() tetap di awal, gunakan:
-                // contactForm.submit();
-                // Namun, cara terbaik adalah membiarkan event.preventDefault() di awal,
-                // lalu menghapusnya jika validasi sukses dan ingin form berjalan secara normal.
-                // Atau, lebih bersih, submit secara programatis setelah reset.
+                // Jika valid, biarkan form terkirim secara normal ke Netlify.
+                // Netlify akan menangkap ini.
+                // Kita tidak perlu event.preventDefault() di sini,
+                // dan juga tidak perlu contactForm.submit() manual setelah validasi sukses.
+                // Cukup biarkan event terjadi secara alami.
 
-                // Cara yang paling umum dan bersih untuk Netlify Forms:
-                // Hapus event.preventDefault() di baris paling atas function submit jika validasi sukses.
-                // Tapi karena kita mau validasi ditampilkan dulu, kita akan submit secara programatis
-                event.currentTarget.submit(); // Ini akan memicu pengiriman form secara native
-                alert('Pesan Anda berhasil dikirim! Kami akan segera menghubungi Anda.');
-                contactForm.reset();
+                // Untuk memastikan Netlify mendeteksinya dengan sempurna,
+                // kita akan membiarkan action default terjadi, dan kemudian Netlify akan menangani.
+                // Opsional: Tampilkan alert sukses dan reset setelah Netlify selesai memproses.
+                // Namun untuk debugging, kita akan tampilkan alert setelah ini.
+
+                // Penting: Pastikan tidak ada alert() atau reset() yang mengganggu redirect Netlify.
+                // Netlify akan secara otomatis me-redirect ke halaman sukses.
+                // Jika Anda ingin pesan sukses kustom, Netlify punya fitur "Success message"
+                // atau redirect ke halaman "Thank You" yang bisa kita buat.
+                // Untuk saat ini, kita hapus alert() dan reset() di sini agar Netlify bekerja mulus.
+                // Setelah form terkirim ke Netlify, Netlify akan menangani redirect ke halaman suksesnya.
+                // Jadi tidak perlu alert lagi di JS ini.
+                // Untuk debugging sementara, kita bisa tambahkan ini, tapi ini harusnya di handle oleh Netlify:
+                // alert('Pesan Anda berhasil dikirim! Netlify akan memprosesnya.');
+                // contactForm.reset();
             }
         });
     }
