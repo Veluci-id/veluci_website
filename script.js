@@ -25,54 +25,55 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // --- Validasi Formulir Kontak ---
-    const contactForm = document.querySelector('.contact-form');
+const contactForm = document.querySelector('.contact-form');
 
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(event) {
-            // Bersihkan semua error sebelumnya
-            clearError('nama');
-            clearError('email');
-            clearError('pesan');
+if (contactForm) {
+    contactForm.addEventListener('submit', function(event) {
+        // Clear all previous errors first
+        // Pastikan ID ini sesuai dengan atribut 'name' di HTML jika tidak ada ID eksplisit untuk input
+        clearError('nama'); // Menggunakan 'nama' sebagai ID sementara untuk showError/clearError
+        clearError('email'); // Menggunakan 'email' sebagai ID sementara untuk showError/clearError
+        clearError('pesan'); // Menggunakan 'pesan' sebagai ID sementara untuk showError/clearError
 
-            // Dapatkan input berdasarkan atribut NAME
-            const nameInput = contactForm.querySelector('input[name="nama"]');
-            const emailInput = contactForm.querySelector('input[name="email"]');
-            const messageInput = contactForm.querySelector('textarea[name="pesan"]');
+        // Dapatkan input berdasarkan atribut NAME
+        const nameInput = contactForm.querySelector('input[name="nama"]');
+        const emailInput = contactForm.querySelector('input[name="email"]');
+        const messageInput = contactForm.querySelector('textarea[name="pesan"]');
 
-            let isValid = true;
-            let errorMessage = [];
+        let isValid = true;
+        let errorMessage = [];
 
-            if (nameInput.value.trim() === '') {
-                showError('nama', 'Nama tidak boleh kosong.');
-                isValid = false;
+        if (nameInput.value.trim() === '') {
+            showError(nameInput.id || 'nama', 'Nama tidak boleh kosong.'); // Gunakan ID atau nama sebagai fallback
+            isValid = false;
+        }
+
+        if (emailInput.value.trim() === '') {
+            showError(emailInput.id || 'email', 'Email tidak boleh kosong.');
+            isValid = false;
+        } else if (!isValidEmail(emailInput.value.trim())) {
+            showError(emailInput.id || 'email', 'Format email tidak valid.');
+            isValid = false;
+        }
+
+        if (messageInput.value.trim() === '') {
+            showError(messageInput.id || 'pesan', 'Pesan tidak boleh kosong.');
+            isValid = false;
+        }
+
+        if (!isValid) {
+            event.preventDefault(); // Mencegah form dikirim jika ada error
+            const firstErrorElement = document.querySelector('input.error, textarea.error, select.error');
+            if (firstErrorElement) {
+                firstErrorElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
-
-            if (emailInput.value.trim() === '') {
-                showError('email', 'Email tidak boleh kosong.');
-                isValid = false;
-            } else if (!isValidEmail(emailInput.value.trim())) {
-                showError('email', 'Format email tidak valid.');
-                isValid = false;
-            }
-
-            if (messageInput.value.trim() === '') {
-                showError('pesan', 'Pesan tidak boleh kosong.');
-                isValid = false;
-            }
-
-            if (!isValid) {
-                event.preventDefault(); // Mencegah form dikirim jika ada error
-                const firstErrorElement = document.querySelector('input.error, textarea.error, select.error');
-                if (firstErrorElement) {
-                    firstErrorElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }
-            } else {
-                // Jika valid, biarkan form terkirim secara normal ke Netlify.
-                // Netlify akan me-redirect ke halaman sukses.
-                // Hapus alert() dan reset() di sini agar Netlify bekerja mulus.
-            }
-        });
-    }
+        } else {
+            // Jika valid, biarkan form terkirim secara normal ke Netlify.
+            // Netlify akan menangani redirect ke halaman sukses yang kita atur.
+            // Tidak perlu alert() sukses dari JS kita.
+        }
+    });
+}
 
     function isValidEmail(email) {
         const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
