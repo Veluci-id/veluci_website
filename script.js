@@ -62,32 +62,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
             if (!isValid) {
                 event.preventDefault(); // Mencegah form dikirim jika ada error
-                const firstErrorElement = document.querySelector('.error');
+                const firstErrorElement = document.querySelector('input.error, textarea.error, select.error');
                 if (firstErrorElement) {
                     firstErrorElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 }
             } else {
                 // Jika valid, biarkan form terkirim secara normal ke Netlify.
-                // Netlify akan menangkap ini.
-                // Kita tidak perlu event.preventDefault() di sini,
-                // dan juga tidak perlu contactForm.submit() manual setelah validasi sukses.
-                // Cukup biarkan event terjadi secara alami.
-
-                // Untuk memastikan Netlify mendeteksinya dengan sempurna,
-                // kita akan membiarkan action default terjadi, dan kemudian Netlify akan menangani.
-                // Opsional: Tampilkan alert sukses dan reset setelah Netlify selesai memproses.
-                // Namun untuk debugging, kita akan tampilkan alert setelah ini.
-
-                // Penting: Pastikan tidak ada alert() atau reset() yang mengganggu redirect Netlify.
-                // Netlify akan secara otomatis me-redirect ke halaman sukses.
-                // Jika Anda ingin pesan sukses kustom, Netlify punya fitur "Success message"
-                // atau redirect ke halaman "Thank You" yang bisa kita buat.
-                // Untuk saat ini, kita hapus alert() dan reset() di sini agar Netlify bekerja mulus.
-                // Setelah form terkirim ke Netlify, Netlify akan menangani redirect ke halaman suksesnya.
-                // Jadi tidak perlu alert lagi di JS ini.
-                // Untuk debugging sementara, kita bisa tambahkan ini, tapi ini harusnya di handle oleh Netlify:
-                // alert('Pesan Anda berhasil dikirim! Netlify akan memprosesnya.');
-                // contactForm.reset();
+                // Netlify akan me-redirect ke halaman sukses.
+                // Hapus alert() dan reset() di sini agar Netlify bekerja mulus.
             }
         });
     }
